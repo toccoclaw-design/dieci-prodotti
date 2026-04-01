@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collezione dei Dieci Prodotti</title>
+  <meta name="description" content="Landing page narrativa per presentare una collezione di dieci prodotti con fotografia hero, storytelling introduttivo e sezione prodotti." />
+  <style>
+    :root {
+      --bg: #f5efe7;
+      --paper: #fffaf5;
+      --ink: #1f1a17;
+      --muted: #6f6257;
+      --accent: #9a6b45;
+      --accent-dark: #6f472a;
+      --line: rgba(31, 26, 23, 0.12);
+      --shadow: 0 18px 60px rgba(44, 26, 14, 0.12);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f2ebe2 0%, #f8f3ed 32%, #fffaf6 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 20px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 20px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-photo {
+      background: rgba(255, 250, 245, 0.74);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(2.4rem, 5vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      font-size: 1.12rem;
+      color: #3d342e;
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(255,255,255,0.56);
+    }
+
+    .hero-photo {
+      min-height: 640px;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(27,19,14,0.14), rgba(27,19,14,0.34)),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1600'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop stop-color='%23d8c0a5'/><stop offset='0.5' stop-color='%23b4855f'/><stop offset='1' stop-color='%23694a35'/></linearGradient></defs><rect width='1200' height='1600' fill='url(%23g)'/><circle cx='880' cy='290' r='220' fill='rgba(255,244,231,0.22)'/><rect x='90' y='150' width='420' height='1220' rx='210' fill='rgba(255,255,255,0.08)'/><rect x='400' y='280' width='280' height='980' rx='140' fill='rgba(255,255,255,0.10)'/><rect x='670' y='480' width='210' height='740' rx='105' fill='rgba(255,255,255,0.09)'/><rect x='860' y='700' width='160' height='500' rx='80' fill='rgba(255,255,255,0.08)'/></svg>");
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .photo-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(18, 12, 9, 0.42);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .photo-caption strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .kicker {
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+    }
+
+    .intro-text {
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(255,255,255,0.68);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      color: #3d342e;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid rgba(65, 47, 34, 0.09);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 40px rgba(53, 34, 22, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(154,107,69,0.2), rgba(154,107,69,0.85));
+    }
+
+    .index {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: rgba(154, 107, 69, 0.12);
+      color: var(--accent-dark);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      line-height: 1.08;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(111, 71, 42, 0.07);
+      color: var(--accent-dark);
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: #463d37;
+    }
+
+    .card strong {
+      color: var(--ink);
+    }
+
+    .cta {
+      padding: 56px 0 84px;
+    }
+
+    .cta-box {
+      border-radius: 28px;
+      padding: 38px;
+      background: linear-gradient(135deg, #1f1a17 0%, #3a2a1e 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,0.8);
+      max-width: 60ch;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 0 0 40px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .intro,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy { padding: 34px 26px; }
+      .hero-photo { min-height: 460px; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 20px), var(--max)); }
+      .hero { padding-bottom: 32px; }
+      section { padding: 28px 0; }
+      .hero-copy,
+      .intro-text,
+      .card,
+      .cta-box { padding: 22px; }
+      .photo-caption { left: 16px; right: 16px; bottom: 16px; }
+      h3 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">Brand / Collezione</header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Landing page pronta da personalizzare</span>
+          <h1>I dieci prodotti che danno forma a un racconto.</h1>
+          <p class="lead">
+            Questa pagina è costruita per presentare una collezione in modo narrativo: una fotografia forte,
+            un'introduzione che crea atmosfera e dieci prodotti raccontati uno per uno, non buttati lì come un listino senz'anima.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#prodotti">Scopri i prodotti</a>
+            <a class="btn btn-secondary" href="#storia">Leggi il racconto</a>
+          </div>
+          <p class="note">Sostituisci fotografia, brand, descrizioni e call to action con i contenuti reali.</p>
+        </div>
+
+        <div class="hero-photo" aria-label="Fotografia principale segnaposto">
+          <div class="photo-caption">
+            <strong>Fotografia hero</strong>
+            Inserisci qui lo scatto principale del brand o della collezione. Deve portare atmosfera, materia e identità.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="storia">
+      <div class="wrap intro">
+        <div>
+          <span class="kicker">Il racconto</span>
+          <h2>Una selezione pensata per essere vista come insieme, ma ricordata nel dettaglio.</h2>
+        </div>
+        <div class="intro-text">
+          <p>
+            Ci sono collezioni che si limitano a mostrare dei prodotti, e altre che costruiscono una presenza.
+            Questa pagina nasce per la seconda categoria: ogni elemento ha una funzione precisa, ma soprattutto un carattere.
+            Il racconto accompagna l'occhio dalla fotografia iniziale fino ai singoli dettagli, trasformando la semplice consultazione in un'esperienza più calda, ordinata e convincente.
+          </p>
+          <p>
+            I dieci prodotti qui sotto sono scritti come tappe di un percorso. Ognuno può essere adattato con nome reale,
+            descrizione commerciale, materiali, prezzo, benefici, tono luxury o tono più diretto. La struttura regge entrambi,
+            senza sembrare una pagina preconfezionata da catalogo triste.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="prodotti">
+      <div class="wrap">
+        <span class="kicker">I dieci protagonisti</span>
+        <h2>Una griglia editoriale per raccontare i prodotti con più forza.</h2>
+
+        <div class="products">
+          <article class="card">
+            <div class="index">01</div>
+            <div class="tag">Prodotto / Signature</div>
+            <h3>Prodotto Uno</h3>
+            <p><strong>Ruolo nella collezione:</strong> il pezzo che apre il racconto e definisce subito il tono del brand.</p>
+            <p>Usa questo spazio per una descrizione breve ma autorevole: materiali, sensazione, uso ideale o motivo per cui è il primo prodotto da notare.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">02</div>
+            <div class="tag">Prodotto / Essential</div>
+            <h3>Prodotto Due</h3>
+            <p><strong>Ruolo nella collezione:</strong> equilibrio e continuità, senza perdere personalità.</p>
+            <p>Qui puoi mettere una descrizione più narrativa o più commerciale, a seconda del tono che vuoi tenere nella landing.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">03</div>
+            <div class="tag">Prodotto / Detail</div>
+            <h3>Prodotto Tre</h3>
+            <p><strong>Ruolo nella collezione:</strong> il dettaglio che alza la percezione complessiva.</p>
+            <p>Perfetto per mettere in evidenza lavorazione, precisione, texture, finitura o una caratteristica distintiva molto concreta.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">04</div>
+            <div class="tag">Prodotto / Balance</div>
+            <h3>Prodotto Quattro</h3>
+            <p><strong>Ruolo nella collezione:</strong> aggiunge profondità e rende il racconto meno prevedibile.</p>
+            <p>Se vuoi, qui puoi raccontare un prodotto versatile, trasversale o adatto a più contesti d'uso.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">05</div>
+            <div class="tag">Prodotto / Core</div>
+            <h3>Prodotto Cinque</h3>
+            <p><strong>Ruolo nella collezione:</strong> il centro della proposta, quello che tiene insieme estetica e funzione.</p>
+            <p>Ottimo spazio per inserire un beneficio chiaro: comfort, durata, resa, performance o riconoscibilità.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">06</div>
+            <div class="tag">Prodotto / Texture</div>
+            <h3>Prodotto Sei</h3>
+            <p><strong>Ruolo nella collezione:</strong> aggiunge materia, ritmo e contrasto.</p>
+            <p>Qui funziona bene una scrittura sensoriale: come si presenta, come si percepisce, cosa comunica a colpo d'occhio.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">07</div>
+            <div class="tag">Prodotto / Statement</div>
+            <h3>Prodotto Sette</h3>
+            <p><strong>Ruolo nella collezione:</strong> il pezzo che rompe la regolarità e si fa ricordare.</p>
+            <p>Ideale per un prodotto più iconico, più audace o semplicemente più forte sul piano visivo.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">08</div>
+            <div class="tag">Prodotto / Everyday</div>
+            <h3>Prodotto Otto</h3>
+            <p><strong>Ruolo nella collezione:</strong> dimostra che praticità e stile possono convivere senza compromessi.</p>
+            <p>Puoi usarlo per raccontare un articolo più accessibile o quotidiano, senza abbassare il livello percepito della collezione.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">09</div>
+            <div class="tag">Prodotto / Refined</div>
+            <h3>Prodotto Nove</h3>
+            <p><strong>Ruolo nella collezione:</strong> chiude il percorso con precisione, misura e coerenza.</p>
+            <p>Qui sta bene una descrizione più elegante, quasi editoriale, per lasciare una sensazione di qualità composta.</p>
+          </article>
+
+          <article class="card">
+            <div class="index">10</div>
+            <div class="tag">Prodotto / Finale</div>
+            <h3>Prodotto Dieci</h3>
+            <p><strong>Ruolo nella collezione:</strong> l'ultimo prodotto deve lasciare un'impressione netta, non fare da riempitivo.</p>
+            <p>Può essere il best seller, il più rappresentativo o quello che porta naturalmente alla chiamata all'azione finale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-box">
+          <span class="kicker" style="color: rgba(255,255,255,0.6);">Chiusura</span>
+          <h2 style="margin-bottom: 14px;">Una landing fatta per vendere meglio, non solo per occupare spazio.</h2>
+          <p>
+            Questa base è pronta per diventare una pagina definitiva: basta inserire fotografia reale, nomi dei prodotti,
+            copy corretto, logo, call to action finale e dettagli del brand.
+          </p>
+          <div class="hero-actions" style="margin-top: 22px;">
+            <a class="btn btn-primary" href="#">Richiedi la collezione</a>
+            <a class="btn btn-secondary" href="#prodotti" style="color:#fff; border-color: rgba(255,255,255,0.24); background: rgba(255,255,255,0.08);">Rivedi i prodotti</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Progetto statico pronto per pubblicazione su GitHub Pages. Da rifinire con fotografia reale e contenuti finali.
+  </footer>
+</body>
+</html>
