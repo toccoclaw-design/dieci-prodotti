@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f3efe8"/>
+  <rect x="90" y="90" width="1020" height="720" rx="36" fill="#fffdf9" stroke="#d8cfc2" stroke-width="4"/>
+  <text x="120" y="150" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#5e4b34">#2 · Organizer estraibile sottolavello</text>
+  <text x="120" y="195" font-family="Inter,Arial,sans-serif" font-size="22" fill="#7a6b58">Visual esplicito del prodotto: mobile basso + cestelli estraibili</text>
+  <rect x="150" y="235" width="520" height="430" rx="16" fill="#d7c1a0" stroke="#9e845f" stroke-width="6"/>
+  <rect x="190" y="275" width="440" height="70" rx="10" fill="#ebe0cf"/>
+  <circle cx="275" cy="310" r="10" fill="#c1b19c"/>
+  <circle cx="545" cy="310" r="10" fill="#c1b19c"/>
+  <rect x="210" y="390" width="180" height="190" rx="14" fill="#f7f4ef" stroke="#8f8f8f" stroke-width="5"/>
+  <rect x="430" y="390" width="180" height="190" rx="14" fill="#f7f4ef" stroke="#8f8f8f" stroke-width="5"/>
+  <rect x="220" y="420" width="160" height="28" rx="8" fill="#7db6d8"/>
+  <rect x="220" y="458" width="140" height="28" rx="8" fill="#9ccc7d"/>
+  <rect x="220" y="496" width="120" height="28" rx="8" fill="#d8b36b"/>
+  <rect x="440" y="420" width="150" height="28" rx="8" fill="#9ccc7d"/>
+  <rect x="440" y="458" width="120" height="28" rx="8" fill="#d8b36b"/>
+  <rect x="440" y="496" width="135" height="28" rx="8" fill="#d68f7c"/>
+  <path d="M700 465 h120" stroke="#c78a4a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M810 435 l55 30 -55 30" fill="none" stroke="#c78a4a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="760" y="365" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#5e4b34">Cosa deve comunicare</text>
+  <text x="760" y="410" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Mobile sotto lavello / bagno</text>
+  <text x="760" y="448" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Cassetti/cestelli che scorrono</text>
+  <text x="760" y="486" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Ordine e accesso, non comodino</text>
+</svg>

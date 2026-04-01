@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f3efe8"/>
+  <rect x="90" y="90" width="1020" height="720" rx="36" fill="#fffdf9" stroke="#d8cfc2" stroke-width="4"/>
+  <text x="120" y="150" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="700" fill="#5e4b34">#1 · Cuscino girevole per sedile auto</text>
+  <text x="120" y="195" font-family="Inter,Arial,sans-serif" font-size="22" fill="#7a6b58">Visual esplicito del prodotto: sedile auto + cuscino rotante</text>
+  <rect x="180" y="300" width="360" height="240" rx="42" fill="#3b3f46"/>
+  <rect x="230" y="210" width="260" height="160" rx="40" fill="#4e545d"/>
+  <circle cx="610" cy="420" r="135" fill="#1f2329"/>
+  <circle cx="610" cy="420" r="108" fill="#3a4048"/>
+  <circle cx="610" cy="420" r="82" fill="#6b737d"/>
+  <path d="M610 290 L645 335 L625 335 L625 400 L595 400 L595 335 L575 335 Z" fill="#d5b07a"/>
+  <path d="M740 420 L695 455 L695 435 L630 435 L630 405 L695 405 L695 385 Z" fill="#d5b07a"/>
+  <path d="M610 550 L575 505 L595 505 L595 440 L625 440 L625 505 L645 505 Z" fill="#d5b07a"/>
+  <path d="M480 420 L525 385 L525 405 L590 405 L590 435 L525 435 L525 455 Z" fill="#d5b07a"/>
+  <text x="780" y="375" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700" fill="#5e4b34">Cosa deve comunicare</text>
+  <text x="780" y="420" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Entrata/uscita più facile dall'auto</text>
+  <text x="780" y="458" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Cuscino rotondo che ruota</text>
+  <text x="780" y="496" font-family="Inter,Arial,sans-serif" font-size="22" fill="#55493c">• Non una sedia da salotto a caso</text>
+</svg>
