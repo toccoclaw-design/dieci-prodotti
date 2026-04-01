@@ -1,397 +1,63 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atelier Forma — Collezione dei Dieci Prodotti</title>
-  <meta name="description" content="Landing page narrativa con dieci prodotti di arredo e lifestyle premium, immagini evocative e storytelling editoriale." />
-  <style>
-    :root {
-      --bg: #f3ede6;
-      --paper: #fffaf5;
-      --ink: #1f1a17;
-      --muted: #6e6258;
-      --accent: #9b6c47;
-      --accent-dark: #6a452d;
-      --line: rgba(31, 26, 23, 0.12);
-      --shadow: 0 20px 60px rgba(44, 26, 14, 0.12);
-      --radius: 24px;
-      --max: 1220px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: linear-gradient(180deg, #efe7de 0%, #f8f4ef 36%, #fffaf6 100%);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    .topbar {
-      padding: 18px 0;
-      font-size: .9rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .hero { padding: 12px 0 54px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-    .hero-copy,
-    .hero-media {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: rgba(255, 250, 245, .76);
-      border: 1px solid rgba(255,255,255,.7);
-    }
-    .hero-copy {
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .eyebrow,
-    .kicker {
-      display: inline-block;
-      color: var(--accent-dark);
-      font-size: .82rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.7rem, 5vw, 5.4rem);
-      line-height: .94;
-      letter-spacing: -.04em;
-    }
-    .lead {
-      font-size: 1.12rem;
-      color: #3d342e;
-      margin: 0 0 26px;
-      max-width: 58ch;
-    }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: .94rem;
-      transition: transform .18s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--ink); color: #fff; }
-    .btn-secondary { background: rgba(255,255,255,.6); border: 1px solid var(--line); }
-    .hero-media {
-      position: relative;
-      min-height: 680px;
-    }
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .hero-caption {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      color: #fff;
-      background: rgba(17, 12, 9, .42);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 18px;
-      padding: 18px 20px;
-      backdrop-filter: blur(8px);
-    }
-    .hero-caption strong { display: block; margin-bottom: 6px; }
-    section { padding: 42px 0; }
-    .intro {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 28px;
-      align-items: start;
-    }
-    h2 {
-      margin: 0;
-      font-size: clamp(1.9rem, 3vw, 3.1rem);
-      line-height: 1.03;
-      letter-spacing: -.03em;
-    }
-    .intro-text {
-      background: rgba(255,255,255,.56);
-      border: 1px solid rgba(255,255,255,.7);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: var(--shadow);
-      color: #433933;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 28px;
-    }
-    .card {
-      background: var(--paper);
-      border: 1px solid rgba(65, 47, 34, 0.09);
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 14px 40px rgba(53, 34, 22, 0.08);
-    }
-    .card-media { aspect-ratio: 4 / 3; overflow: hidden; background: #ddd0c5; }
-    .card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .45s ease;
-    }
-    .card:hover .card-media img { transform: scale(1.04); }
-    .card-body { padding: 24px; }
-    .index {
-      display: inline-flex;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      align-items: center;
-      justify-content: center;
-      background: rgba(154, 107, 69, 0.12);
-      color: var(--accent-dark);
-      font-size: .92rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .tag {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: .76rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: rgba(111,71,42,.08);
-      color: var(--accent-dark);
-    }
-    h3 { margin: 0 0 10px; font-size: 1.48rem; line-height: 1.08; }
-    .card p { margin: 0 0 11px; color: #463d37; }
-    .cta { padding: 56px 0 84px; }
-    .cta-box {
-      border-radius: 28px;
-      padding: 40px;
-      background: linear-gradient(135deg, #1f1a17 0%, #37281e 100%);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-    .cta-box p { color: rgba(255,255,255,.82); max-width: 58ch; }
-    footer { padding: 0 0 40px; color: var(--muted); font-size: .92rem; }
-    @media (max-width: 980px) {
-      .hero-grid, .intro, .products { grid-template-columns: 1fr; }
-      .hero-copy { padding: 34px 26px; }
-      .hero-media { min-height: 440px; }
-    }
-    @media (max-width: 640px) {
-      .wrap { width: min(calc(100% - 20px), var(--max)); }
-      section { padding: 28px 0; }
-      .hero-copy, .intro-text, .card-body, .cta-box { padding: 22px; }
-      .hero-caption { left: 16px; right: 16px; bottom: 16px; }
-      h3 { font-size: 1.3rem; }
-    }
-  </style>
-</head>
-<body>
-  <header class="wrap topbar">Atelier Forma / Collezione 01</header>
-
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Collezione editoriale</span>
-          <h1>Dieci oggetti, una sola idea di eleganza quotidiana.</h1>
-          <p class="lead">
-            Atelier Forma nasce per raccogliere pezzi che non fanno rumore, ma restano impressi.
-            Una collezione di arredi e dettagli che tiene insieme proporzioni pulite, materia calda e una presenza visiva capace di dare carattere agli spazi senza appesantirli.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#prodotti">Scopri la collezione</a>
-            <a class="btn btn-secondary" href="#storia">Leggi il racconto</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dieci Prodotti — shortlist ragionata per Meta Ads 2026</title>
+    <meta name="description" content="Shortlist ragionata di 10 prodotti fisici dropshipping adatti a Meta Ads 2026 per target 35-60, con focus sui 3 migliori." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+:root {--bg:#f4f1ea;--panel:#fffdfa;--panel-2:#f8f5ef;--ink:#1f1f1b;--muted:#676256;--line:rgba(31,31,27,.1);--accent:#8b6b43;--shadow:0 16px 48px rgba(37,33,24,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#f8f6f1 0%,#f0ece4 100%)}img{max-width:100%;display:block}.page-shell{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:28px 0 60px}.hero,.section,.conclusion-box{background:rgba(255,253,250,.92);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow)}.hero{padding:28px}.eyebrow{display:inline-flex;margin-bottom:14px;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;color:var(--accent)}.hero-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1.5fr) minmax(300px,.9fr);align-items:start}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:.98;letter-spacing:-.04em;margin-bottom:18px}h1 span{color:var(--muted)}.hero-copy,.section-intro p,.catalog-card p,.avoid-grid p,.conclusion-box p,.product-copy li{color:var(--muted);line-height:1.65}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:14px 20px;border-radius:999px;font-weight:700}.button-primary{background:var(--ink);color:#fff}.button-secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}.hero-panel{display:grid;gap:14px}.metric-card{background:var(--panel-2);border:1px solid var(--line);border-radius:22px;padding:18px}.metric-card strong{display:block;margin-bottom:8px;font-size:1rem}.metric-card span{color:var(--muted);line-height:1.5}.section{margin-top:22px;padding:28px}.section-intro{max-width:760px;margin-bottom:26px}.section-intro h2{font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.05;letter-spacing:-.04em;margin-bottom:12px}.criteria-grid,.avoid-grid{display:grid;gap:16px;grid-template-columns:repeat(4,minmax(0,1fr))}.criteria-grid article,.avoid-grid article{border:1px solid var(--line);background:var(--panel-2);border-radius:22px;padding:18px}.criteria-grid h3,.avoid-grid h3,.catalog-card h3,.product-copy h3{font-size:1.08rem;margin-bottom:10px}.top-grid{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}.product-card{background:linear-gradient(180deg,#fffefb 0%,#f7f2e9 100%);border:1px solid var(--line);border-radius:24px;overflow:hidden}.product-media{aspect-ratio:4/3;background:#f1eadf;border-bottom:1px solid var(--line)}.product-media img,.catalog-card img{width:100%;height:100%;object-fit:cover}.product-copy{padding:20px}.rank,.catalog-card span{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(139,107,67,.12);color:var(--accent);font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}.hook{font-weight:600;color:var(--ink);line-height:1.55}.product-copy ul{margin:14px 0 0;padding-left:18px}.catalog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.catalog-card{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:stretch;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#fff}.catalog-card img{min-height:100%;background:#f4efe6}.catalog-card div{padding:18px 18px 18px 0}.catalog-card h3{margin-bottom:8px}.conclusion-box{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:28px}@media (max-width:980px){.hero-grid,.top-grid,.criteria-grid,.avoid-grid,.catalog-grid,.conclusion-box{grid-template-columns:1fr}.catalog-card{grid-template-columns:1fr}.catalog-card div{padding:0 18px 18px}.catalog-card img{aspect-ratio:4/3}.conclusion-box{align-items:start}}@media (max-width:720px){.page-shell{width:min(100% - 18px,1180px);padding-top:10px}.hero,.section,.conclusion-box{border-radius:22px;padding:20px}h1{font-size:2.35rem}}
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="eyebrow">dieci-prodotti / selezione 2026</div>
+        <div class="hero-grid">
+          <div>
+            <h1>10 prodotti utili, semplici e dimostrabili.<span> Non il solito circo da gadget.</span></h1>
+            <p class="hero-copy">Questa landing raccoglie una shortlist ragionata di prodotti fisici adatti a campagne Meta Ads rivolte a un target 35–60. Il criterio non è il wow: è la combinazione tra utilità percepita, demo immediata, angolo creativo chiaro e frizione bassa all'acquisto.</p>
+            <div class="hero-actions">
+              <a href="#top-3" class="button button-primary">Vai ai top 3</a>
+              <a href="#all-products" class="button button-secondary">Vedi tutti i 10 prodotti</a>
+            </div>
           </div>
+          <aside class="hero-panel">
+            <div class="metric-card"><strong>Top 3 prioritari</strong><span>auto / casa / comfort seduta</span></div>
+            <div class="metric-card"><strong>Filtro usato</strong><span>problema chiaro + beneficio visibile + creatività Meta-friendly</span></div>
+            <div class="metric-card"><strong>Da evitare</strong><span>prodotti miracolosi, troppo saturi o poco dimostrabili</span></div>
+          </aside>
         </div>
-        <div class="hero-media">
-          <img src="./images/hero.jpg" alt="Interno elegante con arredi contemporanei" />
-          <div class="hero-caption">
-            <strong>Un linguaggio materico, non decorativo.</strong>
-            Linee morbide, legni caldi, tessuti pieni e dettagli misurati: la collezione è pensata per ambienti che vogliono sembrare vissuti bene, non semplicemente arredati.
+      </header>
+      <main>
+        <section class="section methodology" id="methodology">
+          <div class="section-intro">
+            <div class="eyebrow">metodologia</div>
+            <h2>Come è stata costruita la selezione</h2>
+            <p>La lista privilegia prodotti che si capiscono in pochi secondi, mostrano un prima/dopo o un gesto d'uso evidente, e parlano a bisogni quotidiani realistici per una fascia 35–60.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="storia">
-      <div class="wrap intro">
-        <div>
-          <span class="kicker">Il racconto</span>
-          <h2>Ogni prodotto entra in scena da solo, ma funziona davvero quando dialoga con gli altri.</h2>
-        </div>
-        <div class="intro-text">
-          <p>
-            Questa landing non mostra un catalogo qualunque: costruisce una piccola atmosfera. I dieci prodotti qui sotto sono stati scelti come se fossero capitoli di uno stesso interno. C'è il pezzo che accoglie, quello che illumina, quello che organizza, quello che rifinisce.
-          </p>
-          <p>
-            Il risultato è una collezione coerente, morbida e contemporanea. Non ostenta lusso: lo suggerisce. Non rincorre la moda: crea una presenza. E soprattutto regge bene anche online, perché lavora con immagini forti e copy pulito invece di sembrare la solita scheda prodotto senz'anima.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="prodotti">
-      <div class="wrap">
-        <span class="kicker">I dieci protagonisti</span>
-        <h2>Una collezione immaginata come un interno completo, non come pezzi sparsi.</h2>
-        <div class="products">
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-01.jpg" alt="Poltrona lounge in tessuto bouclé" /></div>
-            <div class="card-body">
-              <div class="index">01</div>
-              <div class="tag">Seduta / Signature</div>
-              <h3>Poltrona Vela</h3>
-              <p><strong>Il primo gesto della stanza.</strong> Una lounge chair morbida, raccolta, pensata per dare un punto di calma allo spazio.</p>
-              <p>Lavora bene in soggiorni, suite, studi e aree attesa dove serve un oggetto comodo ma con presenza architettonica.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-02.jpg" alt="Tavolino basso in legno e pietra" /></div>
-            <div class="card-body">
-              <div class="index">02</div>
-              <div class="tag">Tavolo / Essential</div>
-              <h3>Tavolino Orme</h3>
-              <p><strong>Compatto ma centrale.</strong> Un coffee table che tiene insieme il salotto con una presenza discreta e materica.</p>
-              <p>La superficie calda e il volume sobrio lo rendono ideale per ambienti raffinati che non vogliono sembrare rigidi.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-03.jpg" alt="Lampada da terra di design accesa in interno elegante" /></div>
-            <div class="card-body">
-              <div class="index">03</div>
-              <div class="tag">Luce / Detail</div>
-              <h3>Lampada Nube</h3>
-              <p><strong>La luce come materia morbida.</strong> Più che illuminare, costruisce atmosfera e profondità.</p>
-              <p>Perfetta quando vuoi addolcire un angolo e trasformare un semplice punto luce in una firma visiva.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-04.jpg" alt="Vaso decorativo in ceramica su tavolo" /></div>
-            <div class="card-body">
-              <div class="index">04</div>
-              <div class="tag">Accessorio / Balance</div>
-              <h3>Vaso Cava</h3>
-              <p><strong>Un dettaglio che completa senza invadere.</strong> Ceramica piena, silhouette pulita, presenza silenziosa.</p>
-              <p>Funziona da solo o con rami secchi, fiori strutturati, composizioni minimali dal taglio editoriale.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-05.jpg" alt="Specchio tondo moderno su parete beige" /></div>
-            <div class="card-body">
-              <div class="index">05</div>
-              <div class="tag">Parete / Core</div>
-              <h3>Specchio Aura</h3>
-              <p><strong>Allarga la stanza e ne alza il tono.</strong> Uno specchio pensato per riflettere luce, proporzioni e materiali.</p>
-              <p>Sta bene in ingresso, camera o living come elemento semplice ma immediatamente percepibile.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-06.jpg" alt="Tavolino laterale accanto a una seduta" /></div>
-            <div class="card-body">
-              <div class="index">06</div>
-              <div class="tag">Side table / Texture</div>
-              <h3>Side Table Bruma</h3>
-              <p><strong>Il pezzo che tiene vicini gesto e funzione.</strong> Un tavolino laterale pensato per libri, oggetti, tazze e piccoli rituali.</p>
-              <p>Sta accanto a una poltrona o a un letto con la stessa naturalezza, senza sembrare un accessorio secondario.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-07.jpg" alt="Panca imbottita in interno minimal" /></div>
-            <div class="card-body">
-              <div class="index">07</div>
-              <div class="tag">Seduta / Statement</div>
-              <h3>Panca Tratto</h3>
-              <p><strong>Lineare, forte, utile.</strong> Una panca che può stare in fondo al letto, in ingresso o attorno a un tavolo importante.</p>
-              <p>È il classico prodotto che risolve uno spazio e allo stesso tempo gli dà una direzione estetica.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-08.jpg" alt="Consolle in legno chiaro con oggetti decorativi" /></div>
-            <div class="card-body">
-              <div class="index">08</div>
-              <div class="tag">Ingresso / Everyday</div>
-              <h3>Consolle Sponda</h3>
-              <p><strong>Il prodotto più quotidiano della collezione.</strong> Pensato per chiavi, libri, lampade, oggetti personali e piccoli gesti d'ordine.</p>
-              <p>Ha proporzioni facili, ma una resa visiva abbastanza forte da non sembrare solo utile.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-09.jpg" alt="Libreria moderna con oggetti e libri" /></div>
-            <div class="card-body">
-              <div class="index">09</div>
-              <div class="tag">Storage / Refined</div>
-              <h3>Libreria Segno</h3>
-              <p><strong>Ordina, espone, costruisce ritmo.</strong> Una libreria dal disegno sobrio, pensata per far respirare libri e oggetti.</p>
-              <p>Più che riempire una parete, la organizza con misura, lasciando alla composizione il compito di raccontare il resto.</p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-media"><img src="./images/product-10.jpg" alt="Chaise longue contemporanea in ambiente luminoso" /></div>
-            <div class="card-body">
-              <div class="index">10</div>
-              <div class="tag">Relax / Finale</div>
-              <h3>Chaise Longue Alba</h3>
-              <p><strong>Il pezzo che chiude il racconto con più carattere.</strong> Una seduta lunga e scultorea, pensata per lettura, pausa e presenza visiva.</p>
-              <p>È il finale giusto perché lascia una sensazione precisa: comfort alto, volume pieno, identità chiara.</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="wrap">
-        <div class="cta-box">
-          <span class="kicker" style="color: rgba(255,255,255,.62);">Chiusura</span>
-          <h2 style="margin-bottom:14px;">Una collezione pensata per ambienti che vogliono sembrare composti, caldi e memorabili.</h2>
-          <p>
-            Atelier Forma raccoglie oggetti che non cercano di farsi notare a tutti i costi. Preferiscono entrare lentamente nella stanza, funzionare bene e restare. È questo il tipo di lusso che ha ancora senso mostrare.
-          </p>
-          <div class="hero-actions" style="margin-top:22px;">
-            <a class="btn btn-primary" href="#prodotti">Rivedi i prodotti</a>
-            <a class="btn btn-secondary" href="#storia" style="color:#fff; border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.08);">Torna al racconto</a>
+          <div class="criteria-grid">
+            <article><h3>Utilità immediata</h3><p>Prodotti che risolvono una piccola frizione concreta in casa, in auto, al lavoro o nella routine.</p></article>
+            <article><h3>Dimostrabilità visiva</h3><p>Oggetti che reggono bene in video brevi, UGC o statiche: il beneficio si deve vedere, non spiegare troppo.</p></article>
+            <article><h3>Bassa complessità</h3><p>Niente setup complicati, claim tecnici dubbi o promesse difficili da sostenere in creatività e landing.</p></article>
+            <article><h3>Ad fit per Meta</h3><p>Angoli creativi semplici: comfort, ordine, accessibilità, praticità domestica, piccolo upgrade quotidiano.</p></article>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    Demo editoriale con immagini remote royalty-free da rifinire se vuoi passare a contenuti brandizzati o fotografiа proprietaria.
-  </footer>
-</body>
+        </section>
+        <section class="section top-three" id="top-3">
+          <div class="section-intro"><div class="eyebrow">focus principale</div><h2>I 3 prodotti da spingere per primi</h2><p>Se bisogna partire con una shortlist corta, qui ci sono i tre più solidi per chiarezza del problema, appeal trasversale e facilità di demo.</p></div>
+          <div class="top-grid">
+            <article class="product-card featured"><div class="product-media"><img src="https://source.unsplash.com/1200x900/?car,seat,cushion" alt="Foto di cuscino per sedile auto" /></div><div class="product-copy"><span class="rank">#1</span><h3>Cuscino girevole per sedile auto</h3><p class="hook">Il beneficio si vede subito: entrata e uscita dall'auto più comode, con un gesto semplice.</p><ul><li>Problema riconoscibile per un target adulto</li><li>Creatività forte con demo d'uso dal vivo</li><li>Angolo credibile: praticità quotidiana, non promessa estrema</li></ul></div></article>
+            <article class="product-card featured"><div class="product-media"><img src="https://source.unsplash.com/1200x900/?kitchen,under,sink,organizer" alt="Foto di organizer sottolavello" /></div><div class="product-copy"><span class="rank">#2</span><h3>Organizer estraibile sottolavello</h3><p class="hook">Parla di ordine, accessibilità e spazio recuperato: tre leve che su Meta funzionano ancora bene.</p><ul><li>Prima/dopo molto leggibile in creatività</li><li>Target ampio: cucina, bagno, lavanderia</li><li>Appeal pratico, non moda passeggera</li></ul></div></article>
+            <article class="product-card featured"><div class="product-media"><img src="https://source.unsplash.com/1200x900/?memory,foam,seat,cushion" alt="Foto di cuscino memory foam per seduta" /></div><div class="product-copy"><span class="rank">#3</span><h3>Cuscino ergonomico memory foam</h3><p class="hook">Comfort da scrivania, auto o casa: uso facile da raccontare e percezione immediata di upgrade.</p><ul><li>Visivamente intuitivo anche in statica</li><li>Uso trasversale in più contesti</li><li>Copy prudente: focus su comfort e postura di seduta, senza claim medici</li></ul></div></article>
+          </div>
+        </section>
+        <section class="section" id="all-products"><div class="section-intro"><div class="eyebrow">shortlist completa</div><h2>I 10 prodotti selezionati</h2><p>Dal top 4 al top 10 ci sono prodotti meno centrali dei primi tre, ma ancora interessanti per test creativi, bundle o verticali specifici.</p></div><div class="catalog-grid"><article class="catalog-card"><img src="https://source.unsplash.com/1200x900/?car,seat,cushion" alt="Cuscino girevole per sedile auto" /><div><span>01</span><h3>Cuscino girevole per sedile auto</h3><p>Più facilità nei movimenti in auto, angolo visivo forte, beneficio immediato.</p></div></article><article class="catalog-card"><img src="https://source.unsplash.com/1200x900/?kitchen,under,sink,organizer" alt="Organizer estraibile sottolavello" /><div><span>02</span><h3>Organizer estraibile sottolavello</h3><p>Ordine e accesso rapido agli oggetti in spazi scomodi, ottimo prima/dopo.</p></div></article><article class="catalog-card"><img src="https://source.unsplash.com/1200x900/?memory,foam,seat,cushion" alt="Cuscino ergonomico memory foam" /><div><span>03</span><h3>Cuscino ergonomico memory foam</h3><p>Upgrade di comfort per sedia, auto o lavoro da casa, con messaggio semplice.</p></div></article><article class="catalog-card"><img src="./images/product-04.jpg" alt="Pet hair remover riutilizzabile" /><div><span>04</span><h3>Pet hair remover riutilizzabile</h3><p>Demo classica e pulita: peli su divano o tessuti rimossi in pochi passaggi.</p></div></article><article class="catalog-card"><img src="./images/product-05.jpg" alt="Luce ricaricabile con sensore di movimento" /><div><span>05</span><h3>Luce ricaricabile con sensore</h3><p>Soluzione pratica per corridoi, armadi e passaggi serali con uso intuitivo.</p></div></article><article class="catalog-card"><img src="./images/product-06.jpg" alt="Apribarattoli ergonomico multiuso" /><div><span>06</span><h3>Apribarattoli ergonomico multiuso</h3><p>Prodotto molto comprensibile, con forte leva di accessibilità e praticità domestica.</p></div></article><article class="catalog-card"><img src="./images/product-07.jpg" alt="Organizer da bracciolo divano con tray rigido" /><div><span>07</span><h3>Organizer da bracciolo divano</h3><p>Angolo lifestyle ordinato: telecomando, tazza, smartphone, tutto a portata.</p></div></article><article class="catalog-card"><img src="./images/product-08.jpg" alt="Tappetino doccia foot scrubber" /><div><span>08</span><h3>Tappetino doccia foot scrubber</h3><p>Demo semplice sotto la doccia; utile se comunicato come comfort e praticità.</p></div></article><article class="catalog-card"><img src="./images/product-09.jpg" alt="Poggiapiedi da scrivania foot hammock" /><div><span>09</span><h3>Poggiapiedi da scrivania</h3><p>Oggetto da home office facile da capire, ma da testare con creatività molto concrete.</p></div></article><article class="catalog-card"><img src="./images/product-10.jpg" alt="Bedside caddy organizer da comodino-letto" /><div><span>10</span><h3>Bedside caddy</h3><p>Piccolo organizer da letto per chi vuole tenere vicino essenziali senza ingombro.</p></div></article></div></section>
+        <section class="section caution"><div class="section-intro"><div class="eyebrow">cosa evitare</div><h2>Prodotti da lasciare fuori</h2><p>Qui si taglia netto: meglio una shortlist credibile che una landing piena di roba che confonde o indebolisce la promessa.</p></div><div class="avoid-grid"><article><h3>Gadget miracolosi</h3><p>Se richiedono claim aggressivi, medici o poco verificabili, diventano un problema prima ancora che un'opportunità.</p></article><article><h3>Oggetti troppo saturi</h3><p>Prodotti visti mille volte senza differenziazione creativa reale finiscono a combattere solo sul prezzo.</p></article><article><h3>Prodotti poco leggibili</h3><p>Se in 3 secondi non si capisce cosa fanno, su Meta stai già pagando attenzione persa.</p></article></div></section>
+        <section class="section conclusion"><div class="conclusion-box"><div><div class="eyebrow">prossimo step</div><h2>Se bisogna testare davvero, partirei da 3 angoli creativi semplici.</h2><p>1) gesto d'uso immediato, 2) prima/dopo chiaro, 3) routine quotidiana migliorata. Prima si validano top 3 e hook, poi si allarga la shortlist agli altri prodotti più affini.</p></div><a href="#top-3" class="button button-primary">Rivedi i top 3</a></div></section>
+      </main>
+    </div>
+  </body>
 </html>
